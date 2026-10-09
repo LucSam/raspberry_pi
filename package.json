@@ -1,0 +1,17 @@
+{
+  "name": "raspberry-pi-projekte",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix startmenue run dev",
+    "build": "npm --prefix startmenue run build",
+    "start": "npm --prefix startmenue start",
+    "test": "npm --prefix startmenue test",
+    "test:regression": "npm --prefix startmenue run test:regression",
+    "test:safari": "npm --prefix startmenue run test:safari"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  }
+}

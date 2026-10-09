@@ -1,0 +1,9 @@
+[submodule "wetterwarte"]
+	path = wetterwarte
+	url = https://github.com/LucSam/wetterwarte.git
+[submodule "startmenue"]
+	path = startmenue
+	url = https://github.com/LucSam/pi-startmenue.git
+[submodule "radio"]
+	path = radio
+	url = https://github.com/LucSam/pi-radio.git
