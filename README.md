@@ -63,10 +63,12 @@ Jedes Unterprojekt hat eigene Startbefehle, README, `.gitignore` und ein eigenes
 
 ## Versionsstand
 
-Die erste gemeinsam versionierte Ausgabe trägt in allen vier Repositories den annotierten Git-Tag **`v0.1.0`**. Die Sammlung referenziert die passenden Modul-Commits. Zum späteren Wiederherstellen dieses Standes in einem frischen Klon:
+**v0.2.0:** Temperaturstatistik für Monat, Jahr und 30 Jahre mit Min/Max, Abweichung und separat wählbarer Streuung; korrigierte wiederholte Auswahl in der kalibrierten Vorschau; **Start → Neu laden**; Bluetooth-Suche und Audioauswahl im Radio über den lokalen Pi-Dienst. Windwahrscheinlichkeit und Luftqualitäts-Ortswerte sind deutlicher beschriftet. Hardwareabhängige Funktionen müssen auf dem Zielgerät geprüft werden.
+
+Die aktuelle gemeinsam versionierte Ausgabe trägt in allen vier Repositories den annotierten Git-Tag **`v0.2.0`**. Die Sammlung referenziert die passenden Modul-Commits. Zum späteren Wiederherstellen dieses Standes in einem frischen Klon:
 
 ```sh
-git switch --detach v0.1.0
+git switch --detach v0.2.0
 git submodule update --init --recursive
 npm --prefix wetterwarte ci
 npm run build
@@ -79,7 +81,7 @@ Neue Module werden in `startmenue/modules.json` registriert. Der Radioplayer ble
 
 ## Bluetooth und Erweiterungen
 
-Bluetooth-Boxen im Betriebssystem koppeln und als Tonausgabe wählen. Die App gibt keine erfolgreiche Kopplung vor. Auf dem Mac dieselbe Auswahl unter Systemeinstellungen → Bluetooth bzw. Ton.
+Auf dem Pi unterstützt Radio **Audioausgabe → Boxen suchen → Gerät auswählen → Koppeln/Verbinden**. Der lokale Dienst nutzt BlueZ und PipeWire/PulseAudio, prüft die Verbindung und wählt die Stereoausgabe. Auf dem Mac erfolgt die echte Kopplung weiter unter Systemeinstellungen → Bluetooth bzw. Ton; **Demo ansehen** zeigt die neue Bedienung mit markierten Beispielgeräten ohne Hardwarezugriff. Kopplung und Audioausgabe müssen am jeweiligen Gerät geprüft werden.
 
 Sinnvolle nächste Module: Timer/Wecker, Kalender sowie Nahverkehrsabfahrten. Diese sind noch nicht implementiert. Temperatur- und Windkarten sind als DWD-WMS-Flächendaten verfügbar; CAMS/Open-Meteo liefert modellierte Luftqualität. Unter Radar sind Regen, Temperatur, Wind und Luftqualität auswählbar. Temperatur: ICON-EU, 2 m, 0,0625°, stündlich. Wind: ICON-EPS, 0,25°, sechsstündlich, Wahrscheinlichkeit für mehr als 36 km/h. Luftqualität: CAMS Europa, drei Ortswerte (EAQI und PM₂,₅); keine Flächeninterpolation. Die Karten zeigen ihre eigenen Modellzeiten und Quellen.
 
