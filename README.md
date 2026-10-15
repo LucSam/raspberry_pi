@@ -63,12 +63,17 @@ Jedes Unterprojekt hat eigene Startbefehle, README, `.gitignore` und ein eigenes
 
 ## Versionsstand
 
+**v0.2.1 (Sammlung):** Allgemeine Einrichtungshinweise. Der Code der drei Anwendungen bleibt auf v0.2.0.
+
 **v0.2.0:** Temperaturstatistik für Monat, Jahr und 30 Jahre mit Min/Max, Abweichung und separat wählbarer Streuung; korrigierte wiederholte Auswahl in der kalibrierten Vorschau; **Start → Neu laden**; Bluetooth-Suche und Audioauswahl im Radio über den lokalen Pi-Dienst. Windwahrscheinlichkeit und Luftqualitäts-Ortswerte sind deutlicher beschriftet. Hardwareabhängige Funktionen müssen auf dem Zielgerät geprüft werden.
 
-Die aktuelle gemeinsam versionierte Ausgabe trägt in allen vier Repositories den annotierten Git-Tag **`v0.2.0`**. Die Sammlung referenziert die passenden Modul-Commits. Zum späteren Wiederherstellen dieses Standes in einem frischen Klon:
+Die Sammlung trägt den annotierten Git-Tag **`v0.2.1`** und referenziert die
+passenden Modul-Commits mit **`v0.2.0`**. Die frühere gemeinsam versionierte Ausgabe
+bleibt in allen vier Repositories als `v0.2.0` verfügbar. Zum Wiederherstellen des
+aktuellen Standes in einem frischen Klon:
 
 ```sh
-git switch --detach v0.2.0
+git switch --detach v0.2.1
 git submodule update --init --recursive
 npm --prefix wetterwarte ci
 npm run build
