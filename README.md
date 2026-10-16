@@ -36,6 +36,7 @@ Vorher den Entwicklungsserver beenden. Gleiche Adresse und damit gleiche lokale 
 ## Bedienung
 
 - **Wetter / Radio:** Kacheln öffnen das jeweilige Modul. **Start** oben rechts führt zurück. Radio spielt beim Wechsel weiter; auf Start zeigt eine Schaltfläche den laufenden Sender.
+- **Herunterfahren:** im Startmenü antippen und bestätigen. Der lokale Linux-Dienst fordert das Herunterfahren über systemd-logind an. Die Schaltfläche ist nur aktiv, wenn das System dem App-Benutzer diese Aktion erlaubt. Erst nach abgeschlossenem Herunterfahren den Strom trennen.
 - **Standby:** dunkle Uhr mit Systemzeit in Europe/Berlin. Antippen oder Esc führt zum Startmenü. Automatisch nach 5, 10 oder 30 Minuten ohne Bedienung; alternativ nur manuell. Radio läuft weiter.
 - **Wetter:** zusätzliche Seite **Fokus** mit Wetter links und großer Regenkarte rechts. Die vorhandene Übersicht bleibt. Max/Min sind größer. Normale Herkunftszeilen und Info-Dialog entfallen; Demo-, Offline-, Fehler- und Veraltet-Hinweise bleiben. Methodik steht im [Wetter-README](wetterwarte/README.md).
 - **Radar:** aktuelle Karte zuerst, dann automatische Vorbereitung der gesamten kommenden Bildfolge mit zwei parallelen Abrufen. Balken und Bildzähler zeigen den Fortschritt. Abspielen wartet auf alle Bilder; fehlende Bilder werden automatisch erneut angefragt und lassen sich manuell erneut laden. Abgelaufene Prognosen werden ausdrücklich gekennzeichnet. Der Binärcache ist auch für WebKit ausgelegt. Es werden ausschließlich Zeitpunkte desselben DWD-Modelllaufs verwendet.
@@ -63,17 +64,19 @@ Jedes Unterprojekt hat eigene Startbefehle, README, `.gitignore` und ein eigenes
 
 ## Versionsstand
 
+**v0.2.3:** Herunterfahren mit Bestätigung im Startmenü. Bluetooth-Suche und Verbindung können eine Software-Sperre des Bluetooth-Adapters aufheben; fehlende Werkzeuge und Berechtigungen werden konkret benannt.
+
 **v0.2.2:** Die Geräteansicht passt auch dann auf das Display, wenn Chromium ein breiteres Fenster erzeugt. Startmenü und Standby zeigen keinen seitlichen Rand mehr.
 
 **v0.2.0:** Temperaturstatistik für Monat, Jahr und 30 Jahre mit Min/Max, Abweichung und separat wählbarer Streuung; korrigierte wiederholte Auswahl in der kalibrierten Vorschau; **Start → Neu laden**; Bluetooth-Suche und Audioauswahl im Radio über den lokalen Pi-Dienst. Windwahrscheinlichkeit und Luftqualitäts-Ortswerte sind deutlicher beschriftet. Hardwareabhängige Funktionen müssen auf dem Zielgerät geprüft werden.
 
-Die Sammlung trägt den annotierten Git-Tag **`v0.2.2`** und enthält Startmenü
-**`v0.2.1`** sowie Wetter und Radio **`v0.2.0`**. Die frühere gemeinsam versionierte Ausgabe
+Die Sammlung trägt den annotierten Git-Tag **`v0.2.3`** und enthält Startmenü
+**`v0.2.2`**, Radio **`v0.2.1`** und Wetter **`v0.2.0`**. Die frühere gemeinsam versionierte Ausgabe
 bleibt in allen vier Repositories als `v0.2.0` verfügbar. Zum Wiederherstellen des
 aktuellen Standes in einem frischen Klon:
 
 ```sh
-git switch --detach v0.2.2
+git switch --detach v0.2.3
 git submodule update --init --recursive
 npm --prefix wetterwarte ci
 npm run build
